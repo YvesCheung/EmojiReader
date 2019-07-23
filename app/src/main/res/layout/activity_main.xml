@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:context=".MainActivity">
+
+    <TextView
+            android:id="@+id/tv_cut_output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:hint="裁剪[3,13)的字符串"/>
+
+    <EditText
+            android:id="@+id/et_input"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="输入"
+            android:inputType="textMultiLine"
+            android:singleLine="false"
+            android:textSize="16sp"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:id="@+id/tv_is_emoji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="最后输入的是否Emoji：否"/>
+
+        <TextView
+                android:id="@+id/tv_text_len"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="8dp"
+                android:gravity="right"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:hint="文本字数:0"/>
+    </LinearLayout>
+
+
+    <TextView
+            android:id="@+id/tv_output"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Unicode码点"
+            android:textSize="16sp"/>
+</LinearLayout>
