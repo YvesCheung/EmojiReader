@@ -1,7 +1,5 @@
 # EmojiReader
 
-一个能在字符串中识别出 Emoji 的简单工具
-
 ---
 
 ## 特性
@@ -118,6 +116,22 @@ tag_modifier :=
 通过修饰符和连接符就能把 `Emoji` 码点组合出千变万化的表情。
 
 
+License
+========
+
+	Copyright 2019 Yves Cheung
+	
+   	Licensed under the Apache License, Version 2.0 (the "License");
+   	you may not use this file except in compliance with the License.
+   	You may obtain a copy of the License at
+
+       	http://www.apache.org/licenses/LICENSE-2.0
+
+   	Unless required by applicable law or agreed to in writing, software
+   	distributed under the License is distributed on an "AS IS" BASIS,
+   	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   	See the License for the specific language governing permissions and
+   	limitations under the License.
 
 
   [1]: https://www.unicode.org/reports/tr51/
