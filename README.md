@@ -1,6 +1,11 @@
 # EmojiReader
 
+一个能在字符串中识别出 Emoji 的简单工具
+
 ---
+
+[![](https://jitpack.io/v/YvesCheung/EmojiReader.svg)](https://jitpack.io/#YvesCheung/EmojiReader)
+
 
 ## 特性
 - 支持 **Unicode12** 规范，[点此查看][1]
@@ -51,6 +56,27 @@ int correct = EmojiReader.getTextLength(strWithEmoji); //5
 ```Java
 EmojiReader.subSequence("我是🙂😐😎💏", 0, 5) == "我是🙂😐😎"
 ```
+
+## 安装
+
+1. 根目录的 build.gradle 添加：
+    ```Groovy
+    allprojects {
+        repositories {
+            ...
+            maven { url 'https://jitpack.io' }
+        }
+    }
+    ```
+
+2. 使用的模块的 build.gradle 中添加：
+    ```Groovy
+    dependencies {
+        api 'com.github.YvesCheung:EmojiReader:x.y.z'
+    }
+    ```
+
+    > 其中x.y.z 版本替换为 [![](https://jitpack.io/v/YvesCheung/EmojiReader.svg)](https://jitpack.io/#YvesCheung/EmojiReader)
 
 ## 原理
 
@@ -116,22 +142,6 @@ tag_modifier :=
 通过修饰符和连接符就能把 `Emoji` 码点组合出千变万化的表情。
 
 
-License
-========
-
-	Copyright 2019 Yves Cheung
-	
-   	Licensed under the Apache License, Version 2.0 (the "License");
-   	you may not use this file except in compliance with the License.
-   	You may obtain a copy of the License at
-
-       	http://www.apache.org/licenses/LICENSE-2.0
-
-   	Unless required by applicable law or agreed to in writing, software
-   	distributed under the License is distributed on an "AS IS" BASIS,
-   	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   	See the License for the specific language governing permissions and
-   	limitations under the License.
 
 
   [1]: https://www.unicode.org/reports/tr51/
