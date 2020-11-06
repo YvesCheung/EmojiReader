@@ -1,7 +1,7 @@
 package com.yy.mobile.emoji
 
-import org.junit.Assert
-import org.junit.Test
+import kotlin.test.Test
+
 
 /**
  * Created by 张宇 on 2019-07-23.
@@ -51,9 +51,9 @@ class AssertEmojiTest {
     }
 
     @Test
-    fun isJapanese(){
+    fun isJapanese() {
         val str = """ミカンとリンゴを買う北海道の冬は冷たくて厳しい買いたいが、金がない疲れたので、動けない雨が降る私は学生だ"""
-        for (idx in 0 until str.length) {
+        for (idx in str.indices) {
             Assert.assertFalse(
                 "index of $idx is ${str[idx]}",
                 EmojiReader.isEmojiOfCharIndex(str, idx)
@@ -66,7 +66,7 @@ class AssertEmojiTest {
         val enPunc = """`~!@#$%^&*()_+-=\|[]{};:'",<.>/?"""
         val chPunc = """～·！@#¥%……&*（）-——=+【「】」、|；：'"，《。》/？"""
         val punc = enPunc + chPunc
-        for (idx in 0 until punc.length) {
+        for (idx in punc.indices) {
             Assert.assertFalse(
                 "index of $idx is ${punc[idx]}",
                 EmojiReader.isEmojiOfCharIndex(punc, idx)
@@ -77,7 +77,7 @@ class AssertEmojiTest {
     @Test
     fun isSpecialIcon() {
         val icon = """œ∑´´†¥¨ˆˆπåß∂ƒ˙∆˚¬…æΩ≈ç√∫˜˜≤≥"""
-        for (idx in 0 until icon.length) {
+        for (idx in icon.indices) {
             Assert.assertFalse(
                 "index of $idx is ${icon[idx]}",
                 EmojiReader.isEmojiOfCharIndex(icon, idx)
@@ -90,7 +90,7 @@ class AssertEmojiTest {
         val codePoint = intArrayOf(0x3030, 0x00A9, 0x00AE, 0x2122)
         val emoji = String(codePoint, 0, codePoint.size)
         println(emoji)
-        for (idx in 0 until emoji.length) {
+        for (idx in emoji.indices) {
             Assert.assertTrue(
                 "index of $idx is ${emoji[idx]}",
                 EmojiReader.isEmojiOfCharIndex(emoji, idx)
@@ -101,7 +101,7 @@ class AssertEmojiTest {
     @Test
     fun isWhiteSpace() {
         val str = "\n \t \r"
-        for (idx in 0 until str.length) {
+        for (idx in str.indices) {
             Assert.assertFalse(
                 "index of $idx is ${str[idx]}",
                 EmojiReader.isEmojiOfCharIndex(str, idx)
@@ -114,7 +114,7 @@ class AssertEmojiTest {
         val codePoint = (0x1F600..0x1F6FF).toList().toIntArray()
         val emoji = String(codePoint, 0, codePoint.size)
         println(emoji)
-        for (idx in 0 until emoji.length) {
+        for (idx in emoji.indices) {
             Assert.assertTrue(
                 "index of $idx is ${emoji[idx]}",
                 EmojiReader.isEmojiOfCharIndex(emoji, idx)
@@ -134,8 +134,25 @@ class AssertEmojiTest {
             "detectorMan" to intArrayOf(0x1F575, 0xFE0F, 0x200D, 0x2642, 0xFE0F),
             "detectorGirl" to intArrayOf(0x1F575, 0xFE0F, 0x200D, 0x2640, 0xFE0F),
             "playBasketBall" to intArrayOf(0x26F9, 0xFE0F, 0x200D, 0x2642, 0xFE0F),
-            "boy_heart_girl" to intArrayOf(0x1F469, 0x200D, 0x2764, 0xFE0F, 0x200D, 0x1F48B, 0x200D, 0x1F468),
-            "four_man_family" to intArrayOf(0x1F468, 0x200D, 0x1F469, 0x200D, 0x1F467, 0x200D, 0x1F466)
+            "boy_heart_girl" to intArrayOf(
+                0x1F469,
+                0x200D,
+                0x2764,
+                0xFE0F,
+                0x200D,
+                0x1F48B,
+                0x200D,
+                0x1F468
+            ),
+            "four_man_family" to intArrayOf(
+                0x1F468,
+                0x200D,
+                0x1F469,
+                0x200D,
+                0x1F467,
+                0x200D,
+                0x1F466
+            )
         )
 
         val allEmoji = StringBuilder()
@@ -143,7 +160,7 @@ class AssertEmojiTest {
             allEmoji.append(String(codePoint, 0, codePoint.size))
         }
 
-        for (idx in 0 until composeEmoji.size) {
+        for (idx in composeEmoji.indices) {
             Assert.assertTrue(
                 "emoji of name ${composeEmoji[idx].first} is error.",
                 EmojiReader.isEmojiOfVisionIndex(allEmoji, idx)
@@ -157,7 +174,7 @@ class AssertEmojiTest {
         val codePoint = (0x1F400..0x1F439).toList().toIntArray()
         val emoji = String(codePoint, 0, codePoint.size)
         println(emoji)
-        for (idx in 0 until emoji.length) {
+        for (idx in emoji.indices) {
             Assert.assertTrue(
                 "index of $idx is ${emoji[idx]}",
                 EmojiReader.isEmojiOfCharIndex(emoji, idx)
@@ -170,7 +187,7 @@ class AssertEmojiTest {
         val codePoint = (0x1F330..0x1F346).toList().toIntArray()
         val emoji = String(codePoint, 0, codePoint.size)
         println(emoji)
-        for (idx in 0 until emoji.length) {
+        for (idx in emoji.indices) {
             Assert.assertTrue(
                 "index of $idx is ${emoji[idx]}",
                 EmojiReader.isEmojiOfCharIndex(emoji, idx)
@@ -183,7 +200,7 @@ class AssertEmojiTest {
         val codePoint = (0x1F347..0x1F37F).toList().toIntArray()
         val emoji = String(codePoint, 0, codePoint.size)
         println(emoji)
-        for (idx in 0 until emoji.length) {
+        for (idx in emoji.indices) {
             Assert.assertTrue(
                 "index of $idx is ${emoji[idx]}",
                 EmojiReader.isEmojiOfCharIndex(emoji, idx)
@@ -196,7 +213,7 @@ class AssertEmojiTest {
         val codePoint = (0x1F311..0x1F31F).toList().toIntArray()
         val emoji = String(codePoint, 0, codePoint.size)
         println(emoji)
-        for (idx in 0 until emoji.length) {
+        for (idx in emoji.indices) {
             Assert.assertTrue(
                 "index of $idx is ${emoji[idx]}",
                 EmojiReader.isEmojiOfCharIndex(emoji, idx)
@@ -213,7 +230,7 @@ class AssertEmojiTest {
         }
 
         println(allEmoji)
-        for (idx in 0 until allEmoji.length) {
+        for (idx in allEmoji.indices) {
             Assert.assertTrue(
                 "index of $idx is ${allEmoji[idx]}",
                 EmojiReader.isEmojiOfCharIndex(allEmoji, idx)
@@ -240,7 +257,7 @@ class AssertEmojiTest {
         )
         val emoji = String(codePoint, 0, codePoint.size)
         println(emoji)
-        for (idx in 0 until emoji.length) {
+        for (idx in emoji.indices) {
             Assert.assertTrue(
                 "index of $idx is ${emoji[idx]}",
                 EmojiReader.isEmojiOfCharIndex(emoji, idx)
@@ -281,7 +298,7 @@ class AssertEmojiTest {
         flag.forEach { codePoint ->
             val emoji = String(codePoint, 0, codePoint.size)
             print(emoji)
-            for (idx in 0 until emoji.length) {
+            for (idx in emoji.indices) {
                 Assert.assertTrue(
                     "index of $idx is ${emoji[idx]}",
                     EmojiReader.isEmojiOfCharIndex(emoji, idx)

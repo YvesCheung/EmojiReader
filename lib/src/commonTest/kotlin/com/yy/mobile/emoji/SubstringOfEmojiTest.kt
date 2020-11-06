@@ -1,6 +1,7 @@
 package com.yy.mobile.emoji
 
-import org.junit.Test
+import kotlin.test.Test
+
 
 /**
  * Created by 张宇 on 2019-07-23.

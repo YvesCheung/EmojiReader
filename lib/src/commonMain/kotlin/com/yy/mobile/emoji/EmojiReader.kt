@@ -1,6 +1,5 @@
 package com.yy.mobile.emoji
 
-import java.util.*
 
 /**
  * Created by 张宇 on 2019-07-11.
@@ -111,13 +110,13 @@ object EmojiReader {
         if (start < 0 || end > str.length) {
             throw IndexOutOfBoundsException(
                 "The index should be in range [0,${str.length}]," +
-                        "but actually start = $start and end = $end."
+                    "but actually start = $start and end = $end."
             )
         }
         if (start > end) {
             throw IndexOutOfBoundsException(
                 "The start index should be not bigger than end," +
-                        "but actually start = $start and end = $end."
+                    "but actually start = $start and end = $end."
             )
         }
         if (start == end) {
@@ -257,7 +256,7 @@ object EmojiReader {
         }
 
         private fun moveToPrev() {
-            val lastCodePoint = currentChar.codePoint.removeLast()
+            val lastCodePoint = currentChar.codePoint.removeAt(currentChar.codePoint.lastIndex)
             currentIndex -= Character.charCount(lastCodePoint)
         }
 
@@ -426,17 +425,17 @@ object EmojiReader {
          */
         private fun isEmojiCodePoint(codePoint: Int) =
             (codePoint in 0x1F200..0x1FFFF) ||
-                    (codePoint in 0x2500..0x2FFF) ||
-                    isSpecialSymbol(codePoint)
+                (codePoint in 0x2500..0x2FFF) ||
+                isSpecialSymbol(codePoint)
 
         /**
          * very special case
          */
         private fun isSpecialSymbol(codePoint: Int) =
             codePoint == 0x3030 || //wavy dash
-                    codePoint == 0x00A9 || //copyright
-                    codePoint == 0x00AE || //registered
-                    codePoint == 0x2122 //trade mark
+                codePoint == 0x00A9 || //copyright
+                codePoint == 0x00AE || //registered
+                codePoint == 0x2122 //trade mark
 
         /**
          * 不是独立emoji 要和修饰符一起用
@@ -467,7 +466,7 @@ object EmojiReader {
     private data class InnerNode(
         val startIndex: Int,
         var isEmoji: Boolean = false,
-        val codePoint: Deque<Int> = LinkedList()
+        val codePoint: MutableList<Int> = mutableListOf()
     )
 
     /**
