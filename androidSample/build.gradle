@@ -2,10 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
-//task clean(type: Delete) {
-//    delete rootProject.buildDir
-//}
-
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -30,3 +26,7 @@ dependencies {
 
     api project(path: ':lib')
 }
+
+//task clean(type: Delete) {
+//    delete rootProject.buildDir
+//}
