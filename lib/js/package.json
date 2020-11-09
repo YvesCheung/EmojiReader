@@ -1,5 +1,17 @@
 {
   "main": "kotlin/EmojiReader-lib.js",
+  "description": "A simple tool to recognize Emoji in string",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YvesCheung/EmojiReader.git"
+  },
+  "keywords": [
+    "emoji",
+    "emoticons",
+    "emoticon",
+    "emojis",
+    "kotlin"
+  ],
   "devDependencies": {
     "source-map-support": "0.5.16"
   },
@@ -10,5 +22,5 @@
   "optionalDependencies": {},
   "bundledDependencies": [],
   "name": "emoji-reader",
-  "version": "2.0.2"
+  "version": "2.0.3"
 }

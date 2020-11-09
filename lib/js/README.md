@@ -68,7 +68,7 @@ After `subString`, the remaining Unicode code points will show mess symbol that 
 
 Using `EmojiReader.subSequence`, the String can be cropped correctly according to the visual expectation.
 
-```java
+```
 //JavaScript
 import EmojiReader from 'emoji-reader';
 //Java
