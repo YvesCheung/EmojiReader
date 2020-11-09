@@ -1,0 +1,14 @@
+{
+  "main": "kotlin/EmojiReader-lib.js",
+  "devDependencies": {
+    "source-map-support": "0.5.16"
+  },
+  "dependencies": {
+    "kotlin": "1.3.72"
+  },
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": [],
+  "name": "emoji-reader",
+  "version": "2.0.0"
+}

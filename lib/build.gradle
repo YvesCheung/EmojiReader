@@ -45,11 +45,36 @@ kotlin {
     }
 }
 
-task jvmSourcesJar(type: Jar) {
+task cleanPublish(type: Delete) {
+    group = "nodejs"
+    delete file("${project.projectDir}/js/kotlin")
+}
+
+task prepareForPublish(type: Copy) {
+    group = "nodejs"
+    dependsOn cleanPublish
+    dependsOn assemble
+    from file("$rootDir/build/js/packages/EmojiReader-lib/kotlin")
+    into file("${project.projectDir}/js/kotlin")
+}
+
+task publishNpm {
+    group = "nodejs"
+    dependsOn prepareForPublish
+    doLast {
+        String path = "${project.projectDir}/js"
+        project.exec {
+            println("npm publish $path")
+            commandLine("npm", "publish", path)
+        }
+    }
+}
+
+task mavenSourcesJar(type: Jar) {
     classifier = 'sources'
     from kotlin.sourceSets.jvmMain.kotlin.srcDirs
 }
 
 artifacts {
-    archives jvmSourcesJar
+    archives mavenSourcesJar
 }
