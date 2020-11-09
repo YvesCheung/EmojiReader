@@ -1,6 +1,6 @@
 # EmojiReader
 
-一个能在字符串中识别出 Emoji 的简单工具
+一个能在字符串中识别出 Emoji 的简单工具 (支持JavaScript/Java)
 
 ---
 
