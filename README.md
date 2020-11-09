@@ -4,10 +4,11 @@
 
 ---
 
-[![](https://jitpack.io/v/YvesCheung/EmojiReader.svg)](https://jitpack.io/#YvesCheung/EmojiReader)
-
+[![](https://jitpack.io/v/YvesCheung/EmojiReader.svg)](https://jitpack.io/#YvesCheung/EmojiReader) [![npm version](https://badge.fury.io/js/emoji-reader.svg)](https://badge.fury.io/js/emoji-reader)
 
 > [点此预览效果(需翻墙)： https://emoji-reader.netlify.app](https://emoji-reader.netlify.app)
+
+[English Readme][2]
 
 ## 特性
 - 支持 **Unicode12** 规范，[点此查看][1]
@@ -180,3 +181,4 @@ tag_modifier :=
 
 
   [1]: https://www.unicode.org/reports/tr51/
+  [2]: https://github.com/YvesCheung/EmojiReader/blob/master/lib/js/README.md

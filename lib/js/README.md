@@ -2,6 +2,8 @@
 
 A simple tool to recognize Emoji in string.
 
+[![](https://jitpack.io/v/YvesCheung/EmojiReader.svg)](https://jitpack.io/#YvesCheung/EmojiReader) [![npm version](https://badge.fury.io/js/emoji-reader.svg)](https://badge.fury.io/js/emoji-reader)
+
 > [Preview: https://emoji-reader.netlify.app](https://emoji-reader.netlify.app)
 
 ## Feature
