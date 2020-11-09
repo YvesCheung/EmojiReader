@@ -7,6 +7,8 @@
 [![](https://jitpack.io/v/YvesCheung/EmojiReader.svg)](https://jitpack.io/#YvesCheung/EmojiReader)
 
 
+> [点此预览效果： https://emoji-reader.netlify.app](https://emoji-reader.netlify.app)
+
 ## 特性
 - 支持 **Unicode12** 规范，[点此查看][1]
 - 基于 **EBNF** 状态机的 `Emoji` 判断，比正则表达式更易维护
@@ -23,7 +25,7 @@
 |🏳️‍🌈|6|1|
 | 👨‍👩‍👦‍👦 | 11| 1 |
 
-在Java的字符串中，一个 `Emoji` 由一个或多个 Unicode 码点（CodePoint）组成，一个码点可能由多个字符组成（取决于码点是否大于 0x010000），因此一个 `Emoji` 可能由数个字符组成。
+在字符串中，一个 `Emoji` 由一个或多个 Unicode 码点（CodePoint）组成，一个码点可能由多个字符组成（取决于码点是否大于 0x010000），因此一个 `Emoji` 可能由数个字符组成。
 
 ![](https://i.imgur.com/80mqGiP.png)
 
@@ -31,10 +33,18 @@
 
 使用 ``EmojiReader.getTextLength`` 可以获取到文本的可视符号的长度，一个 `Emoji` 的长度为1。
 
-```Java
-String strWithEmoji = “我是一个😃”;
+```java
+//Java
+String strWithEmoji = "我是一个😃";
 int error = strWithEmoji.length(); //6
 int correct = EmojiReader.getTextLength(strWithEmoji); //5
+```
+
+```javascript
+//JavaScript
+const strWithEmoji = '我是一个😃';
+const error = strWithEmoji.length; //6
+const correct = require('emoji-reader').getTextLength(strWithEmoji); //5
 ```
 
 ## 表情切割
@@ -53,11 +63,22 @@ int correct = EmojiReader.getTextLength(strWithEmoji); //5
 
 使用 `EmojiReader.subSequence` 可以按照一个 `Emoji` 长度为1来进行符合视觉预期的裁剪。
 
-```Java
+```java
+//JavaScript
+import EmojiReader from 'emoji-reader'
+//Java
+import com.yy.mobile.emoji.EmojiReader
+
 EmojiReader.subSequence("我是🙂😐😎💏", 0, 5) == "我是🙂😐😎"
 ```
 
-## 安装
+## 安装 (Javascript)
+
+```
+npm install --save emoji-reader
+```
+
+## 安装 (Java/Android)
 
 1. 根目录的 build.gradle 添加：
     ```Groovy
@@ -72,7 +93,7 @@ EmojiReader.subSequence("我是🙂😐😎💏", 0, 5) == "我是🙂😐😎"
 2. 使用的模块的 build.gradle 中添加：
     ```Groovy
     dependencies {
-        api 'com.github.YvesCheung:EmojiReader:x.y.z'
+        api 'com.github.YvesCheung.EmojiReader:lib:x.y.z'
     }
     ```
 
