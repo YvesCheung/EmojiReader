@@ -1,0 +1,44 @@
+.App {
+    text-align: center;
+    display: flex;
+    background-color: #282c34;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.App-title {
+    color: cornflowerblue;
+    font-size: xx-large;
+}
+
+.App-content {
+    margin: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.App-input {
+    width: 500px;
+    height: auto;
+    padding: 8px 16px 8px 16px;
+    max-lines: 1;
+    font-size: larger;
+}
+
+.App-Result {
+    color: white;
+    font-size: larger;
+    margin-top: 20px;
+}
+
+.App-Result .emphasize {
+    color: cornflowerblue;
+    font-weight: bold;
+}
+
+.App-Result a {
+    color: cornflowerblue;
+}
