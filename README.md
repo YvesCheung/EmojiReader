@@ -6,7 +6,7 @@
 
 [![](https://jitpack.io/v/YvesCheung/EmojiReader.svg)](https://jitpack.io/#YvesCheung/EmojiReader) [![npm version](https://badge.fury.io/js/emoji-reader.svg)](https://badge.fury.io/js/emoji-reader)
 
-> [点此预览效果(需翻墙)： https://emoji-reader.netlify.app](https://emoji-reader.netlify.app)
+> [点此预览效果： https://emoji-reader.vercel.app/](https://emoji-reader.vercel.app/)
 
 [English Readme][2]
 
