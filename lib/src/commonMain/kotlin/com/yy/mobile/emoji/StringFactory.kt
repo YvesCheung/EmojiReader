@@ -24,6 +24,12 @@ internal object StringFactory {
 }
 
 @Suppress("FunctionName")
-fun String(codePoints: IntArray, offset: Int, length: Int): String {
+internal fun String(codePoints: IntArray, offset: Int, length: Int): String {
     return StringFactory.newStringFromCodePoints(codePoints, offset, length)
 }
+
+internal fun List<IntArray>.encodeString(): String =
+    this.joinToString(separator = "") { codePoint -> codePoint.encodeString() }
+
+internal fun IntArray.encodeString(): String =
+    String(this, 0, this.size)

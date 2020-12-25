@@ -36,12 +36,6 @@ class LengthEmojiTest {
         intArrayOf(0x1F3F4, 0xE0067, 0xE0062, 0xE0077, 0xE006C, 0xE0073, 0xE007F)
     )
 
-    private fun List<IntArray>.encodeString(): String =
-        this.joinToString(separator = "") { codePoint -> codePoint.encodeString() }
-
-    private fun IntArray.encodeString(): String =
-        String(this, 0, this.size)
-
     @Test
     fun singleEmojiTest() {
 
@@ -68,7 +62,7 @@ class LengthEmojiTest {
 
     @Test
     fun emojiTest() {
-        val emoji = intArrayOf(0x1F477,0x2640,0xFE0F)
+        val emoji = intArrayOf(0x1F477, 0x2640, 0xFE0F)
         println(emoji.encodeString())
     }
 
@@ -99,5 +93,16 @@ class LengthEmojiTest {
 
         Assert.assertEquals(EmojiReader.getTextLength(blackCat), 1)
         Assert.assertEquals(EmojiReader.getTextLength(orangeCat), 1)
+    }
+
+    @Test
+    fun emojiGlyphFacingDirection() {
+        val faceToLeft = intArrayOf(0x1F3C3, 0x200D, 0x2B05, 0xFE0F).encodeString()
+        println(faceToLeft)
+        val faceToRight = intArrayOf(0x1F3C3, 0x200D, 0x27A1, 0xFE0F).encodeString()
+        println(faceToRight)
+
+        Assert.assertEquals(EmojiReader.getTextLength(faceToLeft), 1)
+        Assert.assertEquals(EmojiReader.getTextLength(faceToRight), 1)
     }
 }

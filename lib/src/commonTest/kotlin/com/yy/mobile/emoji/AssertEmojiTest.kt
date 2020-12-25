@@ -1,6 +1,8 @@
 package com.yy.mobile.emoji
 
 import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 
 
 /**
@@ -87,8 +89,7 @@ class AssertEmojiTest {
 
     @Test
     fun isSpecialSymbol() {
-        val codePoint = intArrayOf(0x3030, 0x00A9, 0x00AE, 0x2122)
-        val emoji = String(codePoint, 0, codePoint.size)
+        val emoji = intArrayOf(0x3030, 0x00A9, 0x00AE, 0x2122).encodeString()
         println(emoji)
         for (idx in emoji.indices) {
             Assert.assertTrue(
@@ -111,8 +112,7 @@ class AssertEmojiTest {
 
     @Test
     fun isSingleEmoji() {
-        val codePoint = (0x1F600..0x1F6FF).toList().toIntArray()
-        val emoji = String(codePoint, 0, codePoint.size)
+        val emoji = (0x1F600..0x1F6FF).toList().toIntArray().encodeString()
         println(emoji)
         for (idx in emoji.indices) {
             Assert.assertTrue(
@@ -171,8 +171,7 @@ class AssertEmojiTest {
 
     @Test
     fun isAnimalEmoji() {
-        val codePoint = (0x1F400..0x1F439).toList().toIntArray()
-        val emoji = String(codePoint, 0, codePoint.size)
+        val emoji = (0x1F400..0x1F439).toList().toIntArray().encodeString()
         println(emoji)
         for (idx in emoji.indices) {
             Assert.assertTrue(
@@ -184,8 +183,7 @@ class AssertEmojiTest {
 
     @Test
     fun isPlantEmoji() {
-        val codePoint = (0x1F330..0x1F346).toList().toIntArray()
-        val emoji = String(codePoint, 0, codePoint.size)
+        val emoji = (0x1F330..0x1F346).toList().toIntArray().encodeString()
         println(emoji)
         for (idx in emoji.indices) {
             Assert.assertTrue(
@@ -197,8 +195,7 @@ class AssertEmojiTest {
 
     @Test
     fun isFoodEmoji() {
-        val codePoint = (0x1F347..0x1F37F).toList().toIntArray()
-        val emoji = String(codePoint, 0, codePoint.size)
+        val emoji = (0x1F347..0x1F37F).toList().toIntArray().encodeString()
         println(emoji)
         for (idx in emoji.indices) {
             Assert.assertTrue(
@@ -210,8 +207,7 @@ class AssertEmojiTest {
 
     @Test
     fun isMoomEmoji() {
-        val codePoint = (0x1F311..0x1F31F).toList().toIntArray()
-        val emoji = String(codePoint, 0, codePoint.size)
+        val emoji = (0x1F311..0x1F31F).toList().toIntArray().encodeString()
         println(emoji)
         for (idx in emoji.indices) {
             Assert.assertTrue(
@@ -225,8 +221,8 @@ class AssertEmojiTest {
     fun isKeyCapEmoji() {
         val allEmoji = StringBuilder()
         (0x23..0x39).forEach { start ->
-            val codePoint = intArrayOf(start, 0xFE0F, 0x20E3)
-            allEmoji.append(String(codePoint, 0, codePoint.size))
+            val emoji = intArrayOf(start, 0xFE0F, 0x20E3).encodeString()
+            allEmoji.append(emoji)
         }
 
         println(allEmoji)
@@ -255,7 +251,7 @@ class AssertEmojiTest {
             0x1F4A0,
             0x1F532
         )
-        val emoji = String(codePoint, 0, codePoint.size)
+        val emoji = codePoint.encodeString()
         println(emoji)
         for (idx in emoji.indices) {
             Assert.assertTrue(
@@ -296,7 +292,7 @@ class AssertEmojiTest {
             intArrayOf(0x1F3F4, 0xE0067, 0xE0062, 0xE0077, 0xE006C, 0xE0073, 0xE007F)
         )
         flag.forEach { codePoint ->
-            val emoji = String(codePoint, 0, codePoint.size)
+            val emoji = codePoint.encodeString()
             print(emoji)
             for (idx in emoji.indices) {
                 Assert.assertTrue(
@@ -306,5 +302,23 @@ class AssertEmojiTest {
             }
         }
         println()
+    }
+
+    /**
+     * https://www.unicode.org/emoji/charts-13.1/emoji-released.html
+     */
+    @Test
+    fun supportEmojiVersion13() {
+        assertEmoji(0x2764, 0xFE0F, 0x200D, 0x1FA79)
+        assertEmoji(0x2764, 0xFE0F, 0x200D, 0x1F525)
+        assertEmoji(0x1F9D4)
+        assertEmoji(0x1F469, 0x200D, 0x2764, 0xFE0F, 0x200D, 0x1F48B, 0x200D, 0x1F468)
+    }
+
+    private fun assertEmoji(vararg codePoint: Int) {
+        val emoji = codePoint.encodeString()
+        assertTrue(EmojiReader.isEmojiOfCharIndex(emoji, 0))
+        assertEquals(1, EmojiReader.getTextLength(emoji))
+        println(emoji + ": " + EmojiReader.analyzeText(emoji))
     }
 }
