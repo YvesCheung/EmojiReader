@@ -73,4 +73,21 @@ class LengthEmojiTest {
         val str = String(emoji,0,emoji.size)
         println(str)
     }
+
+    @Test
+    fun diversityEmojiTest() {
+        val emoji = "\uD83D\uDC81\uD83C\uDFFB" +
+                "\uD83D\uDC81\uD83C\uDFFC" +
+                "\uD83D\uDC81\uD83C\uDFFD" +
+                "\uD83D\uDC81\uD83C\uDFFE" +
+                "\uD83D\uDC81\uD83C\uDFFF" +
+                "\uD83D\uDC81"
+        val length = EmojiReader.getTextLength(emoji)
+
+        println(emoji)
+        println(EmojiReader.transToUnicode(emoji))
+        println(length)
+
+        Assert.assertEquals(length, 6)
+    }
 }

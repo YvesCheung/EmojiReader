@@ -206,6 +206,17 @@ object EmojiReader {
             val ModifierTagRange = 0xE0020..0xE007F
 
             /**
+             * diversity
+             */
+            val ModifierSkinTone = setOf(
+                0x1F3FB, //light skin tone
+                0x1F3FC, //medium-light skin tone
+                0x1F3FD, //medium skin tone
+                0x1F3FE, //medium-dark skin tone
+                0x1F3FF //dark skin tone
+            )
+
+            /**
              * 状态机的状态
              *
              * state in state machine
@@ -222,8 +233,7 @@ object EmojiReader {
             ModifierBlack,
             ModifierColorFul,
             ModifierKeyCap
-        ) + ModifierTagRange
-
+        ) + ModifierTagRange + ModifierSkinTone
 
         private val charUnitList = mutableListOf<InnerNode>()
 
