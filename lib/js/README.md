@@ -98,7 +98,7 @@ allprojects {
 }
 
 dependencies {
-    api 'com.github.YvesCheung.EmojiReader:lib:x.y.z'
+    api 'com.github.YvesCheung.EmojiReade:lib-jvm:x.y.z'
 }
 ```
 
