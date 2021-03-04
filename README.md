@@ -94,7 +94,7 @@ npm install --save emoji-reader
 2. 使用的模块的 build.gradle 中添加：
     ```Groovy
     dependencies {
-        api 'com.github.YvesCheung.EmojiReade:lib-jvm:x.y.z'
+        api 'com.github.YvesCheung.EmojiReader:lib-jvm:x.y.z'
     }
     ```
 
