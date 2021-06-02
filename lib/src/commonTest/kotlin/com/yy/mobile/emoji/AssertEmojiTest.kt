@@ -315,6 +315,39 @@ class AssertEmojiTest {
         assertEmoji(0x1F469, 0x200D, 0x2764, 0xFE0F, 0x200D, 0x1F48B, 0x200D, 0x1F468)
     }
 
+    /**
+     * https://unicode-table.com/cn/blocks/enclosed-cjk-letters-and-months/
+     */
+    @Test
+    fun japaneseAndKoreanWithCircle() {
+        //帶括號的韓文字母
+        for (a in 0x3200..0x320D) {
+            print("${intArrayOf(a).encodeString()} ")
+            assertEmoji(a)
+        }
+        //帶括號的韓文音節
+        for (b in 0x320E..0x321C) {
+            print("${intArrayOf(b).encodeString()} ")
+            assertEmoji(b)
+        }
+        //帶括號的表意文字
+        for (c in 0x3220..0x3243) {
+            print("${intArrayOf(c).encodeString()} ")
+            assertEmoji(c)
+        }
+        //黑色方塊上的圓圈數字起ARIB STD B24
+        for (d in 0x3248..0x324F) {
+            print("${intArrayOf(d).encodeString()} ")
+            assertEmoji(d)
+        }
+        //盤旋表意文字
+        for (e in 0x3280..0x329F) {
+            print("${intArrayOf(e).encodeString()} ")
+            assertEmoji(e)
+        }
+        println()
+    }
+
     private fun assertEmoji(vararg codePoint: Int) {
         val emoji = codePoint.encodeString()
         assertTrue(EmojiReader.isEmojiOfCharIndex(emoji, 0))

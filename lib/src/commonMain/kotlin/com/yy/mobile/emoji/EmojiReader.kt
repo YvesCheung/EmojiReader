@@ -435,7 +435,9 @@ object EmojiReader {
          */
         private fun isEmojiCodePoint(codePoint: Int) =
             (codePoint in 0x1F200..0x1FFFF) ||
-                (codePoint in 0x2500..0x2FFF) ||
+                (codePoint in 0x2460..0x24FF) || //带圈或括号的字母数字
+                (codePoint in 0x2500..0x2FFF) || //制表符/方块元素/几何图形/杂项/印刷/追加箭头/表意文字
+                (codePoint in 0x3200..0x32FF) || //带圈中日韩字母月份
                 isSpecialSymbol(codePoint)
 
         /**
