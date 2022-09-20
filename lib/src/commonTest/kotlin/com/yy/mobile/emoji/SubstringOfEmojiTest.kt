@@ -4,9 +4,8 @@ import kotlin.test.Test
 
 
 /**
- * Created by 张宇 on 2019-07-23.
- * E-mail: zhangyu4@yy.com
- * YY: 909017428
+ * @author YvesCheung
+ * 2019/7/23
  */
 class SubstringOfEmojiTest {
 

@@ -2,9 +2,8 @@ package com.yy.mobile.emoji
 
 
 /**
- * Created by 张宇 on 2019-07-11.
- * E-mail: zhangyu4@yy.com
- * YY: 909017428
+ * @author YvesCheung
+ * 2019/7/11
  *
  * https://www.unicode.org/reports/tr51/tr51-13.html#Proposals
  */

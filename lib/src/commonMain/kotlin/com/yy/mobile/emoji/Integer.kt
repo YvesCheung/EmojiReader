@@ -51,14 +51,14 @@ internal object Integer {
      * @see .toUnsignedString
      * @since   JDK1.0.2
      */
-    fun toHexString(i: Int): String? {
+    fun toHexString(i: Int): String {
         return toUnsignedString0(i, 4)
     }
 
     /**
      * Convert the integer to an unsigned number.
      */
-    private fun toUnsignedString0(`val`: Int, shift: Int): String? {
+    private fun toUnsignedString0(`val`: Int, shift: Int): String {
         // assert shift > 0 && shift <=5 : "Illegal shift value";
         val mag: Int = Int.SIZE_BITS - numberOfLeadingZeros(`val`)
         val chars: Int = max((mag + (shift - 1)) / shift, 1)
