@@ -8,8 +8,6 @@ import kotlin.test.assertTrue
 /**
  * @author YvesCheung
  * 2019/7/23
- *
- * https://emojipedia.org/emoji/
  */
 class AssertEmojiTest {
 
@@ -45,7 +43,7 @@ class AssertEmojiTest {
             "孔雀东南飞，五里一徘徊。“十三能织素，十四学裁衣，十五弹箜篌，十六诵诗书。十七为君妇，心中常苦悲。" +
                     "君既为府吏，守节情不移，贱妾留空房，相见常日稀。鸡鸣入机织，夜夜不得息。三日断五匹，大人故嫌迟。" +
                     "非为织作迟，君家妇难为！妾不堪驱使，徒留无所施，便可白公姥，及时相遣归。”"
-        for (idx in 0 until str.length) {
+        for (idx in str.indices) {
             Assert.assertFalse(
                 "index of $idx is ${str[idx]}",
                 EmojiReader.isEmojiOfCharIndex(str, idx)
@@ -345,6 +343,37 @@ class AssertEmojiTest {
         for (e in 0x3280..0x329F) {
             print("${intArrayOf(e).encodeString()} ")
             assertEmoji(e)
+        }
+        println()
+    }
+
+    /**
+     * 23xx段的Emoji
+     * https://emojipedia.org/emoji/
+     */
+    @Test
+    fun startsWith23xxEmoji() {
+        val cases = listOf(
+            intArrayOf(0x231B), //Hourglass Done
+            intArrayOf(0x23F3), //Hourglass Not Done
+            intArrayOf(0x231A), //Watch
+            intArrayOf(0x23F0), //Alarm Clock
+            intArrayOf(0x23F1, 0xFE0F), //Stopwatch
+            intArrayOf(0x23F2, 0xFE0F), //Timer Clock
+            intArrayOf(0x2328, 0xFE0F), //Keyboard
+            intArrayOf(0x23EF, 0xFE0F), //Play or Pause Button
+            intArrayOf(0x23E9), //Fast-Forward Button
+            intArrayOf(0x23FA, 0xFE0F) //Record Button
+        )
+        cases.forEach { codePoint ->
+            val emoji = codePoint.encodeString()
+            print(emoji)
+            for (idx in emoji.indices) {
+                Assert.assertTrue(
+                    "index of $idx is ${emoji[idx]}",
+                    EmojiReader.isEmojiOfCharIndex(emoji, idx)
+                )
+            }
         }
         println()
     }

@@ -21,7 +21,8 @@ class LengthEmojiTest {
         intArrayOf(0x1F575, 0xFE0F, 0x200D, 0x2640, 0xFE0F),
         intArrayOf(0x26F9, 0xFE0F, 0x200D, 0x2642, 0xFE0F),
         intArrayOf(0x1F469, 0x200D, 0x2764, 0xFE0F, 0x200D, 0x1F48B, 0x200D, 0x1F468),
-        intArrayOf(0x1F468, 0x200D, 0x1F469, 0x200D, 0x1F467, 0x200D, 0x1F466)
+        intArrayOf(0x1F468, 0x200D, 0x1F469, 0x200D, 0x1F467, 0x200D, 0x1F466),
+        intArrayOf(0x1F636, 0x200D, 0x1F32B, 0xFE0F) //face in clouds
     )
 
     private val flagEmojiSample = listOf(
@@ -37,25 +38,22 @@ class LengthEmojiTest {
 
     @Test
     fun singleEmojiTest() {
-
         val str = singleEmojiSample.encodeString()
-
+        println(str)
         Assert.assertEquals(EmojiReader.getTextLength(str), singleEmojiSample.size)
     }
 
     @Test
     fun flagEmojiTest() {
-
         val str = flagEmojiSample.encodeString()
-
+        println(str)
         Assert.assertEquals(EmojiReader.getTextLength(str), flagEmojiSample.size)
     }
 
     @Test
     fun composeEmojiTest() {
-
         val str = composeEmojiSample.encodeString()
-
+        println(str)
         Assert.assertEquals(EmojiReader.getTextLength(str), composeEmojiSample.size)
     }
 
