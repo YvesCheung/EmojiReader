@@ -378,6 +378,28 @@ class AssertEmojiTest {
         println()
     }
 
+    @Test
+    fun arrowEmoji() {
+        for (arrow in 0x2190..0x21FF) {
+            val noEmoji = intArrayOf(arrow).encodeString()
+            print(noEmoji)
+            Assert.assertFalse(
+                "$noEmoji is not a emoji",
+                EmojiReader.isEmojiOfCharIndex(noEmoji, 0)
+            )
+
+            val emoji = intArrayOf(arrow, 0xFE0F).encodeString()
+            print(emoji)
+            for (idx in emoji.indices) {
+                Assert.assertTrue(
+                    "index of $idx is ${emoji[idx]}",
+                    EmojiReader.isEmojiOfCharIndex(emoji, idx)
+                )
+            }
+        }
+        println()
+    }
+
     private fun assertEmoji(vararg codePoint: Int) {
         val emoji = codePoint.encodeString()
         assertTrue(EmojiReader.isEmojiOfCharIndex(emoji, 0))

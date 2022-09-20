@@ -1,6 +1,7 @@
 package com.yy.mobile.emoji
 
 import kotlin.test.Test
+import kotlin.test.assertTrue
 
 /**
  * @author YvesCheung
@@ -101,5 +102,12 @@ class LengthEmojiTest {
 
         Assert.assertEquals(EmojiReader.getTextLength(faceToLeft), 1)
         Assert.assertEquals(EmojiReader.getTextLength(faceToRight), 1)
+    }
+
+    @Test
+    fun arrowEmojiTest() {
+        val str = "↗️↘️↙️↖️↔️⏩⏪⏫⏬"
+        println(str)
+        assertTrue(EmojiReader.getTextLength(str) == 9)
     }
 }

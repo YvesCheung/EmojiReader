@@ -459,7 +459,8 @@ object EmojiReader {
          * E.g 0x39 0x20E3
          */
         private fun maybeEmojiCodePoint(codePoint: Int) =
-            codePoint in 0x0..0x39
+            codePoint in 0x0..0x39 ||
+                codePoint in 0x2190..0x21FF  //箭头，加上modifier会变成箭头emoji
 
         /**
          * Regional_Indicator
@@ -489,5 +490,13 @@ object EmojiReader {
         val length: Int,
         val isEmoji: Boolean,
         val codePoint: List<Int>
-    )
+    ) {
+
+        override fun toString(): String {
+            return "Node(startIndex=$startIndex, " +
+                "length=$length, " +
+                "isEmoji=$isEmoji, " +
+                "codePoint=${codePoint.joinToString { Integer.toHexString(it) }})"
+        }
+    }
 }
